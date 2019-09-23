@@ -1,4 +1,4 @@
-import * as actionTypes from '../actions';
+import * as actionTypes from '../actions/actions';
 
 const initialState = {
     results: []
@@ -7,6 +7,9 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch(action.type){
         case actionTypes.STORE_RESULT:
+
+
+        
             return {
                 ...state,
                 results: state.results.concat({id: Math.random() * 10000, value: action.result}) // use concat instead of push in this case, to maintain immutability of the original state
