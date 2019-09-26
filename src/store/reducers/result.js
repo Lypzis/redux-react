@@ -1,4 +1,4 @@
-import * as actionTypes from '../actions/actions';
+import * as actions from '../actions/index';
 
 const initialState = {
     results: []
@@ -6,7 +6,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
-        case actionTypes.STORE_RESULT:
+        case actions.STORE_RESULT:
 
 
         
@@ -14,7 +14,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 results: state.results.concat({id: Math.random() * 10000, value: action.result}) // use concat instead of push in this case, to maintain immutability of the original state
             };
-        case actionTypes.DELETE_RESULT: 
+        case actions.DELETE_RESULT: 
             // const id = 2;
             // const newArray = [...state.results]; //copy of the array
             // newArray.splice(id, 1); // removes item

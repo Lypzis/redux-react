@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // perfect place to create a global store (Redux)
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 // the two reducers will merge together at the end
@@ -32,7 +33,7 @@ const logger = store => {
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger, thunk)));
 
 // Provider wrapps the app
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
